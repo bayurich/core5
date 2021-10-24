@@ -1,0 +1,16 @@
+<staff>
+    <employee>
+        <id>1</id>
+        <firstName>Name1</firstName>
+        <lastName>Surname1</lastName>
+        <country>Country1</country>
+        <age>10</age>
+    </employee>
+    <employee>
+        <id>2</id>
+        <firstName>Name2</firstName>
+        <lastName>Surname2</lastName>
+        <country>Country2</country>
+        <age>20</age>
+    </employee>
+</staff>

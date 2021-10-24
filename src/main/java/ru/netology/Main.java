@@ -56,7 +56,7 @@ public class Main {
         printListOfEmployee(list);
     }
 
-    private static List<Employee> jsonToList(String json) {
+    public static List<Employee> jsonToList(String json) {
         List<Employee> employees = new ArrayList<>();
 
         Gson gson = new GsonBuilder().create();
@@ -73,7 +73,7 @@ public class Main {
         return employees;
     }
 
-    private static String readString(String fileName) {
+    public static String readString(String fileName) {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
             String s;
@@ -88,7 +88,7 @@ public class Main {
         return sb.toString();
     }
 
-    private static List<Employee> parseXML(String fileName) {
+    public static List<Employee> parseXML(String fileName) {
         List<Employee> employees = new ArrayList<>();
         try {
             DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -105,8 +105,8 @@ public class Main {
 
                         long id = Long.parseLong(element.getElementsByTagName("id").item(0).getTextContent());
                         String firstName = element.getElementsByTagName("firstName").item(0).getTextContent();
-                        String lastName = element.getElementsByTagName("firstName").item(0).getTextContent();
-                        String country = element.getElementsByTagName("firstName").item(0).getTextContent();
+                        String lastName = element.getElementsByTagName("lastName").item(0).getTextContent();
+                        String country = element.getElementsByTagName("country").item(0).getTextContent();
                         int age = Integer.parseInt(element.getElementsByTagName("age").item(0).getTextContent());
 
                         employees.add(new Employee(id, firstName, lastName, country, age));
@@ -121,7 +121,7 @@ public class Main {
         return employees;
     }
 
-    private static void writeString(String json, String fileName) {
+    public static void writeString(String json, String fileName) {
         try (FileWriter fileWriter = new FileWriter(fileName)){
             fileWriter.write(json);
             fileWriter.flush();
@@ -132,14 +132,14 @@ public class Main {
         }
     }
 
-    private static String listToJson(List<Employee> list) {
+    public static String listToJson(List<Employee> list) {
         Type listType = new TypeToken<List<Employee>>() {}.getType();
         Gson gson = new GsonBuilder().create();
 
         return gson.toJson(list, listType);
     }
 
-    private static List<Employee> parseCSV(String[] columnMapping, String fileName) {
+    public static List<Employee> parseCSV(String[] columnMapping, String fileName) {
         List<Employee> employees = new ArrayList<>();
 
         try (CSVReader csvReader = new CSVReader(new FileReader(fileName))){
