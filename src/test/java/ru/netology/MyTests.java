@@ -14,7 +14,7 @@ import java.util.List;
 
 import static ru.netology.Main.parseCSV;
 
-public class myTests {
+public class MyTests {
 
     final static String TEST_PATH = "src/test/resources/";
     final static String TEST_JSON_FILE = "data_test.json";
@@ -32,8 +32,7 @@ public class myTests {
     }
 
     @Test
-    public void testClassEmployee()
-    {
+    public void testClassEmployee(){
         final long expectedId = 1;
         final String expectedFirstName = "John";
         final String expectedLastName = "Smith";
